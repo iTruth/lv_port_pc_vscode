@@ -5,7 +5,7 @@ set(LVGL_PRO_PROJECT_DIR
     ""
     CACHE PATH "Path to LVGL Pro Project folder")
 
-set(UI_PROJECT_DIR
+set(LVGL_UI_PROJECT_DIR
     "src/ui"
     CACHE PATH "Path to UI Project folder")
 
@@ -36,12 +36,12 @@ add_compile_definitions($<$<BOOL:${LV_USE_FFMPEG}>:LV_USE_FFMPEG=1>)
 
 # Add LVGL subdirectory
 add_subdirectory(lvgl)
-target_include_directories(lvgl PUBLIC ${PROJECT_SOURCE_DIR} ${UI_PROJECT_DIR})
+target_include_directories(lvgl PUBLIC ${PROJECT_SOURCE_DIR} ${LVGL_UI_PROJECT_DIR})
 
 # Add UI sources
 file(GLOB UI_SOURCES
-    "${UI_PROJECT_DIR}/*.h"
-    "${UI_PROJECT_DIR}/*.c"
+    "${LVGL_UI_PROJECT_DIR}/*.h"
+    "${LVGL_UI_PROJECT_DIR}/*.c"
 )
 
 set(MAIN_SOURCES src/main.c ${UI_SOURCES})
